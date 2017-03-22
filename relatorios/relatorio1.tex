@@ -1,0 +1,115 @@
+\documentclass[letterpaper,twocolumn,10pt]{article}
+\usepackage{relatorio,cite}
+\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+\begin{document}
+
+\title{
+	\large \rm UFSC / CTC / INE\\
+	\large \rm Disciplina: Paradigmas de Programação (INE5416)\\
+	\Large \bf Relatório 1: Panorama histórico
+}
+
+\author{
+	Professor: Dr. João Dovicchi\\
+	\and
+	Aluno: Matheus Silva P. Bittencourt\\(15200617)
+}
+
+\maketitle
+
+\thispagestyle{empty} % Desativa numeração da página
+
+\section{Lógica combinatória}
+
+A lógica combinatória, foi introduzida por Moses Schönfinkel~\cite{Schonfinkel}
+e Haskell Curry~\cite{Curry}, e é uma notação para eliminar a necessidade de
+variáveis na lógica matemática. Recentemente é usada em Ciência da Computação
+como um modelo de computação teórico e também como base para projetar
+linguagens de programação funcionais. Ela é baseada em combinadores, que são
+funções de alta-ordem.
+
+\subsection*{Combinadores SKI}
+
+Supondo que \(xy\) seja uma ``função'' \(x\) aplicada a um ``argumento'' \(y\),
+podemos descrever a avaliação dos combinadores \textbf{SKI} como:
+
+\begin{enumerate}
+	\item \(\mathbf{I}x = x\)
+	\item \(\mathbf{K}xy = x\)
+	\item \(\mathbf{S}xyz = xz(yz)\)
+\end{enumerate}
+
+\subsection*{Combinadores vs. Operadores}
+
+Combinadores são generalizados o suficiente para não dependerem do que seus
+termos são, e eles apenas atuam nos seus termos. Operadores são funções, logo
+agem num domínio bem definido de possíveis argumentos e possíveis resultados.
+
+\section{Tese de Church-Turing}
+
+Em Teoria da Computação, a tese de Church-Turing é uma hipótese sobre a
+natureza das funções computáveis. Ela diz que uma função sobre os números
+naturais é computável por um humano seguindo um algoritmo, ignorando as
+limitações de recursos, se somente se for computável por uma Máquina de Turing.
+
+Antes da definição precisa de função computável, matemáticos usavam
+frequentemente o termo informal ``efetivamente calculável'' para descrever
+funções que eram computáveis com métodos que usavam papel e caneta. Já que a
+definição de função computável é vaga, a tese não pode ser formalmente provada.
+
+\section{Linguagens de programação e seus paradigmas}
+
+Existem inúmeras linguagens de programação e paradigmas de programação, entre
+os mais conhecidos e usados, podemos citar:
+
+\begin{itemize}
+	\item Paradigma imperativo (e.g. C, Go, MATLAB)
+	\item Paradigma orientado a objetos (e.g. C++, Python, Smalltalk)
+	\item Paradigma funcional (e.g. Haskell, Lisp)
+	\item Paradigma lógico (e.g. Prolog, SQL, HTML)
+\end{itemize}
+
+\section{Lei de Moore, a palestra de Feynman, Peter Shor e a fatoração de
+números inteiros grandes}
+
+A lei de Moore é uma observação de que o número de transistores em um circuito
+integrado denso, dobra aproximadamente a cada dois anos. No seu artigo de 1965
+~\cite{Moore}, Gordon Moore descreveu que o número de componentes por circuito
+integrado dobrava a cada ano, e projetou que esse ritmo de crescimento
+continuaria por pelo menos mais uma década. Em 1975 ele revisou sua previsão
+para a próxima década, falando que dobraria a cada dois anos. Essa previsão se
+manteve correta até por volta de 2012.
+
+Richard Feynman, um grande físico do século XX, teve ideias muito à frente de
+seu tempo sobre nanotecnologia, e contribuiu conceptualmente, mas diretamente,
+para a evolução dessa ramificação da tecnologia, tornando-a muito mais comum
+nos tempos atuais.
+
+Peter Shor é conhecido primariamente por formular um algoritmo de fatoração de
+números inteiros utilizando computadores quânticos~\cite{Shor}, que funciona
+exponencialmente mais rápido do que o melhor algoritmo de fatoração clássico
+existente.
+
+\section{Qubit}
+
+Em computação quântica um qubit é uma unidade de informação quântica, análogo
+ao bit clássico. Um qubit é um sistema de mecânica quântica de dois estados.
+Num sistema clássico, um bit só pode estar em um dos dois estados, no entanto a
+mecânica quântica possibilita que o qubit esteja numa superposição de ambos os
+estados ao mesmo tempo, uma propriedade fundamental para a computação quântica.
+
+\section{D-Wave}
+
+O D-Wave One é o primeiro computador quântico disponível comercialmente, ele
+opera num chip de 128-qubit. Em maio de 2013, uma colaboração entre a NASA,
+Google e a Universities Space Research Asscociation (USRA) lançou o Quantum
+Artificial Intelligence Lab (Laboratório de Inteligência Artificial Quântica)
+baseado no D-Wave Two de 512 qubit que seria usado em pesquisa de aprendizado
+de máquina, entre outros campos de estudo.
+
+\footnotesize \bibliographystyle{acm} \bibliography{bib-relatorio1}
+
+\end{document}
