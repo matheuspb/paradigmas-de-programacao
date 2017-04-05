@@ -1,0 +1,85 @@
+\documentclass[letterpaper,twocolumn,10pt]{article}
+\usepackage{relatorio,cite}
+\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+\begin{document}
+
+\title{
+    \large \rm UFSC / CTC / INE\\
+    \large \rm Disciplina: Paradigmas de Programação (INE5416)\\
+    \Large \bf Relatório 2: Estrutura das linguagens
+}
+
+\author{
+    Professor: Dr. João Dovicchi\\
+    \and
+    Aluno: Matheus Silva P. Bittencourt\\(15200617)
+}
+
+\maketitle
+
+\thispagestyle{empty} % Desativa numeração da página
+
+\section{Geradores de gramática}
+
+Os geradores de gramática, são, os geradores dos analisadores léxicos e dos
+analisadores sintáticos , que podem ser combinados para gerar o \textit{parser}
+de uma linguagem.
+
+\subsection*{Analisadores léxicos (Lex, Flex)}
+
+O analisador léxico, também chamado de \textit{tokenizer}, é responsável por
+converter uma sequência de caracteres em uma sequência de \textit{tokens}, i.e.
+uma sequência de strings com respectivo significado.
+
+Lex é um programa que gera analisadores léxicos. Geralmente é utilizado em
+conjunto com o Yacc, entregando ao usuário o código-fonte do analisador na
+linguagem de programação C. Recomenda-se produzir a entrada do analisador
+sintático com este programa a partir de expressões regulares. Internamente, ele
+funciona através de autômatos finitos determinísticos (máquinas que aceitam
+linguagens regulares). Flex é a versão aberta do Lex.
+
+\subsection*{Analisadores sintáticos (Yacc, Bison)}
+
+O analisador sintático, ou \textit{parser}, é responsável por construir a
+árvore sintática, do programa. Estes programas executam a segunda fase do
+funcionamento de um compilador, analisando se a sequência de \textit{tokens}
+faz sentido para a sintaxe especificada pela gramática. Por exemplo o código em
+python:
+\begin{verbatim}
+x = 1
+print(y)
+\end{verbatim}
+gera uma árvore sintática correta, porém o erro só é identificado na análise
+semântica, pois o analisador sintático não faz a análise sensível a contexto.
+
+Estas ferramentas são essenciais para a formalização da descrição de uma
+linguagem de programação e intrínsecas ao funcionamento de computadores
+atualmente.
+
+Yacc é um programa que constrói o analisador sintático de uma linguagem,
+baseado em uma gramática de livre contexto . Desenvolvido na AT\&T em meados da
+década de 1970, existem diversas versões do Yacc, sejam elas abertas ou não.
+Bison é a versão aberta do Yacc.
+
+\section{Sintaxe da linguagem C}
+
+Como podemos observar, o arquivo \texttt{scan.l}, é usado para gerar o
+analisador léxico, pois nele estão definidas todas as palavras reservadas, e
+algumas expressões regulares, que são usadas para reconhecer e definir os
+\textit{tokens} que serão passados ao analisador sintático. Por exemplo,
+algumas expressões regulares são usadas para identificar os \textit{tokens}
+\texttt{CONSTANT} , alguns símbolos especiais (e.g. `+', `-', `;') possuem
+\textit{tokens} semelhantes ao próprio símbolo.
+
+O arquivo \texttt{gram.y} é usado para gerar o analisador sintático. Como
+podemos ver ele possui uma série de `regras' que definem como os
+\textit{tokens} devem estar ordenados para que o programa tenha validade
+sintática. Por exemplo, um \texttt{if} precisa estar no formato \texttt{if
+(expr)}, logo se num programa existir um \texttt{if ()} ele não compilará, pois
+o analisador sintático detectará um erro, já que não existe uma expressão
+válida entre os \textit{tokens} \texttt{(} e \texttt{)}.
+
+\end{document}
