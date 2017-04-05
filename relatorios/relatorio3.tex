@@ -1,0 +1,73 @@
+\documentclass[letterpaper,twocolumn,10pt]{article}
+\usepackage{relatorio,cite}
+\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+\begin{document}
+
+\title{
+	\large \rm UFSC / CTC / INE\\
+	\large \rm Disciplina: Paradigmas de Programação (INE5416)\\
+	\Large \bf Relatório 3: Linguagens multiparadigmas
+}
+
+\author{
+	Professor: Dr. João Dovicchi\\
+	\and
+	Aluno: Matheus Silva P. Bittencourt\\(15200617)
+}
+
+\maketitle
+
+\thispagestyle{empty} % Desativa numeração da página
+
+\section{Linguagens multiparadigmas}
+
+Uma linguagem multiparadigma é um linguagem de programação que suporta
+diferentes paradigmas de programação. O objetivo dessas linguagens é
+possibilitar ao programador que escolha o melhor `estilo' de programação que se
+encaixa na sua tarefa, assumindo que nenhum paradigma resolve todos os
+problemas da maneira mais fácil ou da maneira mais eficiente. Uma série de
+linguagens se encaixam nesse perfil, por exemplo, F\# e Scala, que implementam
+os paradigmas mais comuns(imperativo, orientado a objetos, ...) e dão suporte
+completo a programação funcional.
+
+\section{Python}
+
+Python é uma linguagem de alto nível e de propósitos gerais. É uma linguagem
+interpretada e que enfatiza a legibilidade do código. Python suporta múltiplos
+paradigmas de programação, incluindo orientação a objetos, reflexão, funcional,
+entre outros.
+
+Isso possibilita códigos flexíveis e que fazem muito em poucas
+linhas, por exemplo, um `Hello World' em Python possui uma linha:
+\begin{verbatim}
+print("Hello World")
+\end{verbatim}
+ao mesmo tempo em que o código:
+\begin{verbatim}
+f = lambda t: "\n".join(map(\
+    " ".join, zip(*([iter(t)] * 9))))
+\end{verbatim}
+define uma função \texttt{f} que tem como parâmetro uma string no formato
+\texttt{"72589346184165739239614275847351682916842\
+9537952378146234761985687935214519284673"} e transforma em uma matriz formatada
+assim:
+\begin{verbatim}
+7 2 5 8 9 3 4 6 1
+8 4 1 6 5 7 3 9 2
+3 9 6 1 4 2 7 5 8
+4 7 3 5 1 6 8 2 9
+1 6 8 4 2 9 5 3 7
+9 5 2 3 7 8 1 4 6
+2 3 4 7 6 1 9 8 5
+6 8 7 9 3 5 2 1 4
+5 1 9 2 8 4 6 7 3
+\end{verbatim}
+
+Como podemos ver, utilizando os múltiplos paradigmas disponibilizados no Python
+podemos combiná-los, para fazer tarefas complexas em algumas linhas, dando
+muita robustez a linguagem.
+
+\end{document}
