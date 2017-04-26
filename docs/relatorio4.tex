@@ -1,0 +1,88 @@
+\documentclass[letterpaper,twocolumn,10pt]{article}
+\usepackage{relatorio,cite}
+\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[colorlinks=true, citecolor=black, urlcolor=blue]{hyperref}
+\usepackage{fancyvrb}
+
+\begin{document}
+
+\title{
+    \large \rm UFSC / CTC / INE\\
+    \large \rm Disciplina: Paradigmas de Programação (INE5416)\\
+    \Large \bf Relatório 4: Cálculo-$\lambda$
+}
+
+\author{
+    Professor: Dr. João Dovicchi\\
+    \and
+    Aluno: Matheus Silva P. Bittencourt\\(15200617)
+}
+
+\maketitle
+
+\thispagestyle{empty} % Desativa numeração da página
+
+\section{Bases do cálculo-$\lambda$}
+
+\textit{An unsolvable problem of elementary number theory}~\cite{Church} pode
+ser obtido
+\href{http://www.ics.uci.edu/~lopes/teaching/inf212W12/readings/church.pdf}
+{aqui}, enquanto existem apenas excertos de \textit{The Calculi of
+Lambda-Conversion} na internet.
+
+A principal diferença entre funções matemáticas e expressões lambdas, é que o
+domínio de funções é definido por conjunto, ou um produto cartesiano de
+conjuntos, já o domínio de expressões lambda é mais amplo, pois pode admitir
+inclusive outras expressões lambda. Expressões lambda também só possuem uma
+variável, apesar de podermos escrever funções de várias variáveis na forma de
+expressões lambda utilizando o conceito de \textit{currying}.
+
+Abaixo segue um pequeno resumo sobre os três tipos de reduções no
+cálculo-$\lambda$:
+
+\begin{itemize}
+
+	\item \textbf{conversão-$\alpha$} (ou conversão alfa): responsável por
+		renomear variáveis se assim for necessário para o escopo da expressão.
+		Por exemplo: $\lambda x.x \stackrel{\alpha}{\rightarrow} \lambda y.y$.
+
+	\item \textbf{redução-$\beta$} (ou redução beta): a mais comum das
+		operações de redução por uma grande margem, habilita o processo de
+		calcular um resultado da aplicação de uma função a uma expressão. Por
+		exemplo: $\lambda x.x + y\ (7) \stackrel{\beta}{\rightarrow} 7 + y$.
+
+	\item \textbf{conversão-$\eta$} (ou conversão eta): elimina redundâncias
+		nas abstrações, no caso de uma função ser utilizada apenas para passar
+		seu argumento a outras expressões. Por exemplo: $\lambda x.Mx
+		\stackrel{\eta}{\rightarrow} M$, onde $x$ não pode ser uma variável
+		livre em $M$.
+
+\end{itemize}
+
+\section{Exercícios Haskell}
+
+\begin{enumerate}
+
+	\item
+		\begin{Verbatim}[tabsize=0, fontsize=\small]
+		deleteBy (\x y -> y `mod` x == 0) 3 [5..10]
+		\end{Verbatim}
+
+	\item
+		\begin{Verbatim}[tabsize=0, fontsize=\small]
+		filter (\x -> x `mod` 4 == 0) [4..19]
+		\end{Verbatim}
+
+	\item
+		\begin{Verbatim}[tabsize=0, fontsize=\small]
+		[1,1,1,2,2,3,3,4]
+		\end{Verbatim}
+
+\end{enumerate}
+
+\footnotesize \bibliographystyle{acm}
+\bibliography{relatorio4}
+
+\end{document}
