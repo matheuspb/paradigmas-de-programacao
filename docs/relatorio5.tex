@@ -1,0 +1,57 @@
+\documentclass[letterpaper,twocolumn,10pt]{article}
+\usepackage{relatorio,cite}
+\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+\begin{document}
+
+\title{
+	\large \rm UFSC / CTC / INE\\
+	\large \rm Disciplina: Paradigmas de Programação (INE5416)\\
+	\Large \bf Relatório 5: Análise Léxica: Sintaxe do Haskell
+}
+
+\author{
+	Professor: Dr. João Dovicchi\\
+	\and
+	Aluno: Matheus Silva P. Bittencourt\\(15200617)
+}
+
+\maketitle
+
+\thispagestyle{empty} % Desativa numeração da página
+
+\section*{Parte 1}
+
+\begin{verbatim}
+f x = case x of
+	0 -> 1
+	1 -> 5
+	2 -> 2
+	_ -> 1
+
+quicksort :: (Ord a) => [a] -> [a]
+quicksort [] = []
+quicksort (x:xs) = quicksort lt ++ [x] ++ quicksort ge
+	where {lt = [y | y <- xs, y < x]; ge = [y | y <- xs, y >= x]}
+\end{verbatim}
+
+\section*{Parte 2}
+
+\begin{enumerate}
+	\item \verb$[1..1000]$
+	\item \verb$[1,4..99]$
+	\item \verb$pg a1 = [a1*(2**(x-1)) | x <- [1..50]]$\\
+		Sendo que, a1 é o primeiro termo da progressão geométrica.
+	\item
+		\begin{verbatim}
+			-- lista dos infinitos fatoriais
+			fatoriais = 1 : zipWith (*) fatoriais [1..]
+
+			-- enésimo termo da lista infinita
+			fat n = fatoriais !! n
+		\end{verbatim}
+\end{enumerate}
+
+\end{document}
