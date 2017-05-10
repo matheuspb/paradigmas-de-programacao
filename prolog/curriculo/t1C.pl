@@ -45,4 +45,4 @@ maispos(D) :-
 % Questao 9 - t1C
 maiorcadeia(L) :-
 	findall(N, (disciplina(_, D, _), precadeiatamanho(D, N)), Ls),
-	max_list(Ls, M), precadeia(Ds, Ld), length(L, M), append([Ds], Ld, L).
+	max_list(Ls, M), precadeia(Ds, Ld), length(Ld, M), append([Ds], Ld, L).

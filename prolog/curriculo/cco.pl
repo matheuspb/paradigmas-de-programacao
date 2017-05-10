@@ -90,9 +90,7 @@ prerequisito(ine5414, ine5418).
 prerequisito(ine5417, ine5419).
 prerequisito(ine5408, ine5420).
 prerequisito(mtm5245, ine5420).
-prerequisito(mtm5512, ine5420).
 prerequisito(mtm7174, ine5420).
-prerequisito(ine5408, ine5421).
 prerequisito(ine5415, ine5421).
 prerequisito(ine5414, ine5422).
 prerequisito(ine5408, ine5423).
@@ -101,18 +99,16 @@ prerequisito(ine5408, ine5423).
 prerequisito(ine5412, ine5424).
 prerequisito(ine5405, ine5425).
 prerequisito(ine5421, ine5426).
-prerequisito(ine5419, ine5427).
-prerequisito(ine5413, ine5453).
-prerequisito(ine5415, ine5453).
-prerequisito(ine5419, ine5453).
+prerequisito(ine5417, ine5427).
+prerequisito(ine5413, ine5430).
 prerequisito(ine5416, ine5430).
 prerequisito(ine5405, ine5430).
+prerequisito(ine5417, ine5453).
 
 % sétima fase
 prerequisito(ine5407, ine5428).
 prerequisito(ine5403, ine5429).
 prerequisito(ine5414, ine5429).
-prerequisito(ine5415, ine5429).
 prerequisito(ine5414, ine5431).
 prerequisito(ine5423, ine5432).
 prerequisito(ine5427, ine5433).
