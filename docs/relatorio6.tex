@@ -1,0 +1,118 @@
+\documentclass[a4paper,twocolumn,10pt]{article}
+\usepackage{relatorio,cite,fullpage,lmodern}
+\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+
+\begin{document}
+
+\title{
+	\large \rm UFSC / CTC / INE\\
+	\large \rm Disciplina: Paradigmas de Programação (INE5416)\\
+	\Large \bf Relatório 6: Classes e Tipos
+}
+
+\author{
+	Professor: Dr. João Dovicchi\\
+	\and
+	Aluno: Matheus Silva P. Bittencourt\\(15200617)
+}
+
+\maketitle
+
+\pagestyle{empty} % Desativa numeração da página
+
+\section*{Parte 1}
+
+Em linguagens de programação e na teoria dos tipos, polimorfismo (do Grego,
+\textit{polys}, ``muitas'' e \textit{morphē}, ``forma'') é prover uma única
+interface para entidades de diferentes tipos. Um tipo polimórfico, é um tipo
+que possui operações que podem ser usadas em valores de algum outro tipo, ou
+tipos.
+
+Fundamentalmente existem alguns tipos de polimorfismo, entre eles:
+
+\begin{itemize}
+
+	\item Polimorfismo ad hoc - Quando um função possui implementações
+		diferentes e potencialmente heterogêneas dependendo de um conjunto
+		limitado de tipos ou combinações deles. Muitas linguagens suportam esse
+		tipo de polimorfismo com sobrescrita de operadores (\textit{operator
+		overloading}).
+
+	\item Polimorfismo paramétrico - Quando o código é escrito sem menção a
+		nenhum tipo específico, porém pode ser usado de forma transparente com
+		qualquer novo tipo. Em linguagens orientadas a objetos, isso é
+		conhecido como programação genérica (em C++ \textit{templates}), em
+		linguagens funcionais é abreviado para polimorfismo.
+
+\end{itemize}
+
+Em C++ a utilização de \textit{templates} possibilita a programação de
+\textit{procedures} e classes, genéricas. Além disso C++ provê um extenso
+suporte a sobrescrita de operadores, possibilitando sobrescrever praticamente
+qualquer operador da linguagem. C++ também oferece métodos virtuais, para que
+sejam sobrescritos pelas subclasses, e métodos puramente virtuais, que
+possibilitam escrever classes abstratas\footnote{Semelhante a interfaces em
+Java.}.
+
+Em Java podemos escrever interfaces, que obrigam as classes que a implementam
+de fato implementar todas as operações(métodos) descritos pela interface, e
+também podemos sobrescrever métodos de uma superclasse, possibilitando formas
+de polimorfismo ad hoc. Também podemos ter classes genéricas em Java
+(polimorfismo paramétrico). Java não suporta nenhum tipo de sobrescrita de
+operadores.
+
+Em Python também possuímos uma ideia de programação genérica, mas que funciona
+diferente de C++. Python também possibilita a sobrescrita de métodos de uma
+superclasse e de alguns operadores (e.g. \verb$__add__, __eq__$).
+
+Haskell, por outro lado, não suporta sobrecarga de funções completamente,
+apenas através de \textit{type classes}, construtos que habilitam subclasses a
+utilizar, implementar e sobrecarregar métodos disponíveis. Porém o polimorfismo
+paramétrico é natural em Haskell usando \textit{type variables}, que podem ser
+substituídos por qualquer tipo concreto.
+
+Como Haskell possui um paradigma (funcional) muito diferente do paradigma
+orientado a objetos, normalmente você aborda o problema de uma forma
+substancialmente diferente do que em linguagens orientadas a objetos, logo,
+conceitos específicos de orientação a objetos, como encapsulamento, não existem
+em Haskell.
+
+\section*{Parte 2}
+
+Em Haskell definimos uma classe\footnote{interface} e uma
+instância\footnote{implementação, especialização} assim:
+
+\begin{verbatim}
+class Eq a where
+    (==) :: a -> a -> Bool
+
+instance Eq Integer where
+-- usando um conversão-eta
+    (==) = `integerEq`
+\end{verbatim}
+
+Agora podemos usar uma função que tem um parâmetro do tipo \verb$Eq$, por
+exemplo, com um valor do tipo \verb$Integer$.
+
+Se fossemos comparar métodos e funções de C++ com Haskell, seria como se todas
+as funções de C++ só possuíssem parâmetros \verb$const$, e todos os métodos
+fossem \verb$const$\footnote{Métodos $const$ em C++ não podem modificar o
+estado do objeto.}, já que Haskell não possibilita que se altere o estado dos
+parâmetros de uma função/método.
+
+Listas e tuplas são estruturas fundamentais para manipulação de grupos de
+valores. A restrição mais importante é que todos os elementos da lista devem
+ser do mesmo tipo. Existe um operador de adição de elementos à lista que pode
+ser utilizado da seguinte maneira: \texttt{<elemento>:[]}, onde a lista é
+delimitada por colchetes. De modo contrário, tuplas aceitam elementos de tipos
+diferentes, mas são imutáveis no seu tamanho, ou seja, o operador \texttt{:}
+não deve funcionar. $n$-uplas são tuplas de tamanho $n$, ou seja, que contêm
+$n$ elementos.
+
+Funções em Haskell são tipos abstratos, pois funções, de alta ordem, podem
+aceitar outras funções de um determinado tipo como parâmetro, isso é essencial
+para que existam funções de alta ordem, que são o grande trunfo das linguagens
+funcionais.
+
+\end{document}
