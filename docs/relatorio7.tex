@@ -1,0 +1,67 @@
+\documentclass[a4paper,twocolumn,10pt]{article}
+\usepackage{relatorio,cite,fullpage,lmodern,amsmath}
+\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+
+\begin{document}
+
+\title{
+	\large \rm UFSC / CTC / INE\\
+	\large \rm Disciplina: Paradigmas de Programação (INE5416)\\
+	\Large \bf Relatório 7: Módulos em Haskell
+}
+
+\author{
+	Professor: Dr. João Dovicchi\\
+	\and
+	Aluno: Matheus Silva P. Bittencourt\\(15200617)
+}
+
+\maketitle
+
+\thispagestyle{empty} % Desativa numeração da página
+
+\section*{Módulo \texttt{Hyperbolic}}
+
+No arquivo \texttt{hyperbolic.hs} é definido o módulo \texttt{Hyperbolic}, que
+possui as funções hiperbólicas ($senh$, $cosh$, $tanh$, $coth$). Para calcular
+essas funções, precisamos do valor de $e$ (base do logaritmo natural).  Sendo
+$e = \sum_{n=0}^{\infty} \frac{1}{n!}$, pegando apenas os primeiros $20$ termos
+dessa série, já obtemos o valor de $e$ com uma boa precisão (valor igual a
+função \texttt{exp 1} do módulo \texttt{Prelude}.
+
+Agora basta definir as funções hiperbólicas:
+
+\begin{align*}
+	sinh(u) &= \frac{e^u - e ^{-u}}{2} \\
+	cosh(u) &= \frac{e^u + e ^{-u}}{2} \\
+	tanh(u) &= \frac{sinh(u)}{cosh(u)} \\
+	coth(u) &= \frac{cosh(u)}{sinh(u)}
+\end{align*}
+
+Para que não haja ambiguidade com as funções hiperbólicas do módulo
+\texttt{Prelude}, basta adicionar a linha \texttt{import Prelude hiding (sinh,
+cosh, tanh, coth)}
+
+Alguns testes feitos no \texttt{ghci}:
+
+\begin{verbatim}
+*Hyperbolic> import Prelude
+
+*Hyperbolic Prelude> Prelude.exp 1
+2.718281828459045
+*Hyperbolic Prelude> Hyperbolic.e
+2.718281828459045
+
+*Hyperbolic Prelude> Prelude.sinh 1.5
+2.1292794550948173
+*Hyperbolic Prelude> Hyperbolic.sinh 1.5
+2.1292794550948173
+
+*Hyperbolic Prelude> Prelude.cosh 1.2
+1.8106555673243747
+*Hyperbolic Prelude> Hyperbolic.cosh 1.2
+1.8106555673243747
+\end{verbatim}
+
+\end{document}
