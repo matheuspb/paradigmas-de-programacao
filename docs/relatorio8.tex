@@ -1,0 +1,55 @@
+\documentclass[a4paper,twocolumn,10pt]{article}
+\usepackage{relatorio,cite,fullpage,lmodern,url}
+\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+
+\begin{document}
+
+\title{
+	\large \rm UFSC / CTC / INE\\
+	\large \rm Disciplina: Paradigmas de Programação (INE5416)\\
+	\Large \bf Relatório 8: Listas e \textit{Arrays}
+}
+
+\author{
+	Professor: Dr. João Dovicchi\\
+	\and
+	Aluno: Matheus Silva P. Bittencourt\\(15200617)
+}
+
+\maketitle
+
+\thispagestyle{empty} % Desativa numeração da página
+
+\section{\textit{Arrays} em C vs Listas em Python}
+
+A diferença básica dessas estruturas são que os \textit{Arrays} em C são
+estruturas estáticas, ou seja, possuem um tamanho fixo (definido em tempo de
+compilação) e estão alocadas contiguamente na memória. Para obter um espaço de
+memória arbitrário (em tempo de execução), precisamos alocar dinamicamente a
+memória usando as funções da família \texttt{malloc}.
+
+Já em Python, a estrutura básica para armazenar dados de forma linear, é a
+lista, que é uma estrutura de dados, ou seja, possui operações definidas
+(inserção em qualquer posição, remoção em qualquer posição...), que abstraem a
+manipulação dos dados. Essa estrutura de dados pode possuir diferentes
+implementações, porém normalmente se implementa utilizando-se
+\textit{arrays}~\cite{python-lista} por possuírem acesso rápido em qualquer
+posição da estrutura. Sabendo disso, espera-se que lidar com estruturas
+lineares em Python seja muito menos verboso e trabalhoso do que em C, vide o
+código implementado nesse roteiro.
+
+Em C sempre que um \textit{array} é passado por argumento, é passado um
+ponteiro, ou seja, se a função modifica o array modificará também o
+\textit{array} original. O mesmo acontece em Python com listas, pois como
+listas são objetos, então quando passadas como argumento, a função recebe uma
+referência para o objeto original. Para que isso não aconteça, é necessário que
+se copie as estruturas previamente, antes de passá-las para funções, ou a
+própria função pode realizar essa tarefa. Em C podemos utilizar parâmetros
+tipados como \texttt{const} para termos certeza que uma função, que não
+precise, não modifique o \textit{array}.
+
+\footnotesize \bibliographystyle{acm}
+\bibliography{relatorio8}
+
+\end{document}
