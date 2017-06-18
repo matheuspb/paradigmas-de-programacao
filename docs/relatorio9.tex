@@ -1,0 +1,78 @@
+\documentclass[a4paper,twocolumn,10pt]{article}
+\usepackage{relatorio,cite,fullpage,lmodern}
+\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+
+\begin{document}
+
+\title{
+	\large \rm UFSC / CTC / INE\\
+	\large \rm Disciplina: Paradigmas de Programação (INE5416)\\
+	\Large \bf Relatório 9: Listas em Haskell
+}
+
+\author{
+	Professor: Dr. João Dovicchi\\
+	\and
+	Aluno: Matheus Silva P. Bittencourt\\(15200617)
+}
+
+\maketitle
+
+\thispagestyle{empty} % Desativa numeração da página
+
+\section*{Parte 1}
+
+\subsection*{\textit{Lazyness}}
+
+\textit{Lazyness evaluation} ou avaliação preguiçosa, é uma estratégia para
+avaliar expressões de tal forma que esta é atrasada até que o valor da
+expressão seja realmente necessário. Isso possibilita que se crie estruturas de
+dados virtualmente infinitas, pois os valores dela só serão calculados ao passo
+em que são requisitados.
+
+Normalmente essa técnica é combinada com outra, chamada \textit{memoization},
+que envolve guardar os valores de uma função que já foram computados, numa
+tabela, de tal forma que na próxima vez que a função for chamada, com os mesmos
+parâmetros, o valor já é conhecido. Isto é possível em linguagens puramente
+funcionais, como Haskell, pois todas as funções são puras, logo, o valor de uma
+função é sempre o mesmo quando chamada com os mesmos parâmetros.
+
+\subsection*{\texttt{map}}
+
+Em Haskell, podemos escrever funções de alta ordem, ou seja, funções que
+recebem outras funções como parâmetro. Uma das mais usadas é a função
+\texttt{map}, que recebe uma função e uma lista como parâmetros e retorna outra
+lista, o que ela faz é para cada elemento da lista, executar a função dada e
+colocar o resultado na lista de retorno, ou seja, ela mapeia os valores da
+lista para uma nova lista de acordo com a função passada. Exemplo com o
+\texttt{ghci}:
+
+\begin{verbatim}
+Prelude> map (^ 2) [1..5]
+[1,4,9,16,25]
+\end{verbatim}
+
+Neste caso, o \texttt{map} eleva cada elemento da lista de 1 a 5 ao quadrado.
+
+\subsection*{\texttt{Data.List}}
+
+O módulo \texttt{Data.List} é composto de diversos utilitários para manipulação
+de listas, como um operador para concatenação destas, testes para lista vazia,
+retorno de tamanho de lista, funções para reversão, mapeamento, retorno de
+subsequências e permutações, entre outros.
+
+\section*{Parte 2}
+
+As implementações podem ser encontradas no arquivo \verb|pa.hs|, para o cálculo
+da função $\Gamma$ foi utilizado uma aproximação de Stirling~\cite{Nemes2010}:
+
+\[
+\Gamma(z) \approx \sqrt{\frac{2\pi}{z}}
+\left( \frac{1}{e} \left( z + \frac{1}{12z - \frac{1}{10z}} \right) \right) ^z
+\]
+
+\footnotesize \bibliographystyle{acm}
+\bibliography{relatorio9}
+
+\end{document}
