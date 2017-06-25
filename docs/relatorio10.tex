@@ -1,0 +1,56 @@
+\documentclass[a4paper,twocolumn,10pt]{article}
+\usepackage{relatorio,cite,fullpage,lmodern}
+\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+
+\begin{document}
+
+\title{
+	\large \rm UFSC / CTC / INE\\
+	\large \rm Disciplina: Paradigmas de Programação (INE5416)\\
+	\Large \bf Relatório 10: Mônadas
+}
+
+\author{
+	Professor: Dr. João Dovicchi\\
+	\and
+	Aluno: Matheus Silva P. Bittencourt\\(15200617)
+}
+
+\maketitle
+
+\section{Homologia algébrica}
+
+O conceito de homologia algébrica envolve outras definições abstratas
+utilizadas para construir este estudo. Um espaço topológico pode ser definido
+como um conjunto de pontos e suas vizinhanças, que satisfazem um conjunto de
+axiomas relacionando estes. Permitem formalizar conceitos como convergência e
+continuidade. A homologia algébrica é o ramo da matemática que estuda estes
+espaços em um ambiente de caráter algébrico.
+
+\section{Functores}
+
+Um functor, em teoria das categorias (ramo da matemática que trata de formas
+abstrata estruturas matemáticas), é um mapeamento entre categorias que preserva
+estruturas. Pode-se pensar que um functor é um homomorfismo entre categorias.
+
+\section{Mônadas}
+
+Uma mônada (ou tripla, tríade, construção padrão, construção fundamental) é um
+\textit{endofunctor}, ou seja, um functor que mapeia uma categoria para ela
+mesma, unido a duas transformações naturais. Mônadas são utilizadas na teoria
+dos pares de functores adjuntos, e generalizam operações de fechamento em
+\textit{posets} para categorias arbitrárias.
+
+\section{Cálculo da resistência de resistores em paralelo}
+
+É possível perceber claramente o uso de uma abordagem monádica no código
+produzido em Haskell, embora ainda mostre-se necessário o uso de estruturas
+condicionais em uma parte crítica do código. Esquiva-se de uma divisão com zero
+verificando se algum dos termos é zero, retornando o tipo \texttt{Nothing}; a
+definição explícita de uma função soma segue logo abaixo; e por fim, a
+resistência de dois resistores é obtida aplicando, em cadeia, todas as mônadas
+implementadas. O tratamento de divisões por zero, neste caso, torna-se muito
+mais intuitivo, protegendo o código de tais erros.
+
+\end{document}
